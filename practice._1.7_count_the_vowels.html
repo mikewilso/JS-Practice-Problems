@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Count all the vowels</title>
+    </head>
+    <body>
+        <form>
+            Input Words: <input type="text" id="inp" /> <br>
+            <input type="button" onClick="count_vowels()" Value="Count Vowels" />
+            <br>
+            Number of vowels found: <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function count_vowels(){
+            var vowel_array = ["a", "e", "i", "o", "u"]
+            var input = document.getElementById("inp").value;
+            var word_array = input.split(" ");
+            var vowel_count = 0;
+            for (var i = 0; i < word_array.length; i++){
+                word_length = word_array[i].length;
+                for(var j = 0; j < word_length; j++){
+                    var current_word = word_array[i];
+                    var current_letter = current_word[j];
+                    if (vowel_array.indexOf(current_letter) != -1){
+                        vowel_count++;
+                    }
+                    else continue;
+                };
+            };
+            document.getElementById("display_results").innerHTML = vowel_count;
+        };
+    </script>
+    
+</html>

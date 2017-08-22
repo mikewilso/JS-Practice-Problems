@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Check the Type if input</title>
+    </head>
+    <body>
+        <form>
+            Value to check: <input id="inp" /> <br>
+            <input type="button" onClick="check_type()" Value="Check Type" />
+            <br>
+            The values type is:  <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+
+        function check_type(){
+            var the_input = document.getElementById("inp").value;
+            
+            if(isNaN(the_input)){
+                if(the_input == "true" || the_input == "false"){
+                    document.getElementById("display_results").innerHTML = "Boolean";
+                }
+                else document.getElementById("display_results").innerHTML = "String";
+            }
+            else if(the_input === ""){
+                document.getElementById("display_results").innerHTML = "Null/Undefined";
+            }
+            else document.getElementById("display_results").innerHTML = "Number";
+        };
+        
+    </script>
+    
+</html>

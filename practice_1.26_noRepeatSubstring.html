@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Find Longest Non-Repeating Character Substring</title>
+    </head>
+    <body>
+        <form>
+            Input long string: <input type="text" id="inp" />  
+            <br>
+            <input type="button" onClick="find_longest_substring()" Value="Find" />
+            <br>
+            Longest No-Letters-Repeating Substring: <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function find_longest_substring(){
+            var string = document.getElementById("inp").value;
+            var str_arr = string.split("");
+            var str_length = str_arr.length;
+            var chunk = "";
+            var chunk_array = [];
+            var longest = "";
+            var count = 0;
+            
+            for (var i = 0; i < str_length; i++){
+                if(str_arr[i] > str_arr[i + 1] || str_arr[i] < str_arr[i + 1]){
+                    chunk += str_arr[i];
+                }
+                else if(str_arr[i] === str_arr[i + 1]){
+                    chunk += str_arr[i];
+                    chunk_array[count] = chunk;
+                    chunk = "";
+                    count += 1;
+                }
+                else {
+                    chunk += str_arr[i];
+                    chunk_array[count] = chunk;
+                };
+            };
+            console.log(chunk_array);
+            for(var j = 0; j < chunk_array.length; j++){
+                var current_chunk = chunk_array[j];
+
+                if (current_chunk.length > longest.length){
+                    longest = current_chunk;
+                }
+                else continue;
+            };
+            
+            document.getElementById("display_results").innerHTML = longest;
+        };
+    </script>
+    
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Find Non-Repeated Character</title>
+    </head>
+    <body>
+        <form>
+            Input String: <input type="text" id="inp" />  
+            <br>
+            <input type="button" onClick="findNRL()" Value="Find" />
+            <br>
+            Results: <br>
+            <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function findNRL(){
+            
+            var str = document.getElementById("inp").value;
+            var str_array = str.split("");
+            var ref_array = [];
+            
+            for (var i = 0; i < str_array.length; i++){
+                
+                var current_letter = str_array[i];
+                
+                if (ref_array.indexOf(current_letter) == -1){
+                    
+                    if(str_array.indexOf(current_letter, i + 1) == -1){
+                        document.getElementById("display_results").innerHTML = "First non-repeated letter is " + current_letter;
+                        break;
+                    }
+                    
+                    else ref_array.push(current_letter);
+                }
+                
+                else document.getElementById("display_results").innerHTML = "All letters repeat I guess.";
+                
+            };
+        };
+    </script>
+    
+</html>

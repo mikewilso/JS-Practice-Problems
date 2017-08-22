@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Count Letter Instances</title>
+    </head>
+    <body>
+        <form>
+            Input String: <input type="text" id="inp" /> <br>
+            <input type="button" onClick="count_letters()" Value="Count" />
+            <br>
+            Letters: <br>
+            <span id="display_results"></span>
+        </form>
+    </body>
+    <script>
+        function count_letters(){
+            document.getElementById("display_results").innerHTML = "";
+            var str = document.getElementById("inp").value;
+            var chars = str.length;
+            var letter_index = new Object;
+            for (var i = 0; i < chars; i++){
+                var current_letter = str[i];
+                if(letter_index.hasOwnProperty(current_letter)){
+                    letter_index[current_letter] += 1;
+                    continue;
+                }
+                else {
+                    letter_index[current_letter] = 1;
+                };
+                letter_index[current_letter] 
+            };
+            console.log(letter_index);
+            for (var j in letter_index){
+                document.getElementById("display_results").innerHTML += "letter - " + j + ": " + letter_index[j] + "<br>";
+            };
+            
+        };
+    
+    </script>
+</html>

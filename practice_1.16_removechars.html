@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Remove Specific Characters</title>
+    </head>
+    <body>
+        <form>
+            Input String: <input id="inp" /> 
+            Remove these character(s): <input id="chars" /> 
+            <br>
+            <input type="button" onClick="remove_chars()" Value="Remove" />
+            <br>
+            With characters removed:  <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        
+        function remove_chars(){
+            
+            var str = document.getElementById("inp").value;
+            var chars = document.getElementById("chars").value;
+            var str_array = [];
+            var chars_array = [];
+            var results_array = [];
+            
+            for (var i = 0; i < str.length; i++){
+                str_array.push(str[i]);
+            };
+            
+            for (var j = 0; j < chars.length; j++){
+                chars_array.push(chars[j]);
+            };
+            
+            for (var k = 0; k < str_array.length; k++){
+                if((chars_array.indexOf(str_array[k])) == -1){
+                results_array.push((str_array[k]));
+                }
+                else continue;
+            };
+            document.getElementById("display_results").innerHTML = results_array.join("");
+        };
+        
+    </script>
+    
+</html>

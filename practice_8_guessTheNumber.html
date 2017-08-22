@@ -1,0 +1,22 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+		<meta charset=utf-8 />  
+		<title>Guess the Number</title>  
+	</head>  
+	<body>
+
+		<script type="text/javascript">
+            var randomNumber = Math.floor(Math.random() * 10)
+            console.log(randomNumber);
+            while (guess != randomNumber) {
+                var guess = prompt("Guess a number between 1 and 10: ");
+                if (guess > 10 || guess < 1) {
+                    alert("Number not in range, please try again.");
+                }
+            }
+            alert("Congrats! You guessed the number, and it is " + randomNumber);
+		</script>
+        
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Make all the words uppercase</title>
+    </head>
+    <body>
+        <form>
+            Input Words: <input type="text" id="inp" /> <br>
+            <input type="button" onClick="make_words_uppercase()" Value="Uppercase" />
+            <br>
+            Results: <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function make_words_uppercase() {
+            var sentence = document.getElementById("inp").value;
+            var word_array = sentence.split(" ");
+            var result_array = []
+            for (var i = 0; i < word_array.length; i++){
+                var temp = word_array[i];
+                temp = temp.charAt(0).toUpperCase() + temp.slice(1);
+                result_array.push(temp);
+            };
+            document.getElementById("display_results").innerHTML = result_array.join(" ");
+        };
+    </script>
+    
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Bubble Sort High to Low</title>
+    </head>
+    <body>
+        <form>
+            Input Numbers: <input type="text" id="inp" />  
+            <br>
+            <input type="button" onClick="bubble_sort()" Value="Sort" />
+            <br>
+            Results: <br>
+            <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function numberify(arr){
+            var number_array = []
+            for (var i = 0; i < arr.length; i++){
+                number_array[i] = Number(arr[i]);
+            };
+            return number_array;
+        };
+        
+        function bubble_sort(){
+            
+            var swap;
+            var nums = document.getElementById("inp").value;
+            var nums_array = nums.split(" ");
+            var nums_length = nums_array.length - 1;
+            
+            var nums_array1 = numberify(nums_array);
+            
+            do {
+                swap = false;  
+                for (var i = 0; i < nums_length; i++){  
+                    
+                    if (nums_array1[i] < nums_array1[i + 1]){  
+                        
+                        var temp = nums_array1[i];  
+                        nums_array1[i] = nums_array1[i + 1];  
+                        nums_array1[i + 1] = temp;
+                        swap = true;
+                    
+                    }  
+                }
+                
+                nums_length--;
+                
+            } 
+            
+            while (swap);
+            
+            document.getElementById("display_results").innerHTML = nums_array1;   
+        };
+        
+    </script>
+    
+</html>

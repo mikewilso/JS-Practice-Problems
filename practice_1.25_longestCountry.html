@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Find Longest Country Name</title>
+    </head>
+    <body>
+        <form>
+            <p>Just Copy Paste if lazy: Australia, Germany, United States of America, Ghana, Canada, Mexico </p>
+            Input Countries: <input type="text" id="inp" />  
+            <br>
+            <input type="button" onClick="find_longest()" Value="Find" />
+            <br>
+            Longest Country Name is: <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function find_longest(){
+            var countries = document.getElementById("inp").value;
+            var list = countries.split(",");
+            var longest = "";
+            for(var i = 0; i < list.length; i++){
+                if(list[i].length > longest.length){
+                    longest = list[i];
+                }
+                else continue;
+            };
+            
+            document.getElementById("display_results").innerHTML = longest;
+        };
+        
+    </script>
+    
+</html>

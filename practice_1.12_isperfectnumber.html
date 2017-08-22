@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Check the Type if input</title>
+    </head>
+    <body>
+        <form>
+            Value to check: <input id="inp" /> <br>
+            <input type="button" onClick="check_for_perfection()" Value="Check" />
+            <br>
+            Is the number perfect:  <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        
+        function check_for_perfection(){
+            var num = document.getElementById("inp").value;
+            var total = 0;
+            for(var i = 1; i < num; i++){
+                if(num % i == 0){
+                    total += i;
+                }
+            };
+            if (total == num){
+                document.getElementById("display_results").innerHTML = "IT'S PERFECT";
+            }
+            else document.getElementById("display_results").innerHTML = "NOT PERFECT";
+            
+        };
+    </script>
+    
+</html>

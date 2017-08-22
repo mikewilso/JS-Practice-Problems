@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Simple Exponent Calculator</title>
+    </head>
+    <body>
+        <form>
+            Base: <input type="text" id="inp" /> <br>
+            Exponent: <input type="text" id="inp2" /> <br>
+            <input type="button" onClick="do_exponents()" Value="Exponentize" />
+            <br>
+            Here it is: <span id="display_results"></span>
+        </form>
+    </body>
+    <script>
+        function do_exponents(){
+            var base = document.getElementById("inp").value;
+            var exp = document.getElementById("inp2").value;
+            document.getElementById("display_results").innerHTML = Math.pow(base, exp);
+        };
+    
+    </script>
+</html>

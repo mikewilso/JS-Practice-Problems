@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Generate Unique ID</title>
+    </head>
+    <body>
+        <form>
+            Username: <input id="un" />  
+            <br>
+            <input type="button" onClick="generate_ID()" Value="Generate" />
+            <br>
+            New Account Info: <br>
+            <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function generate_ID(){
+            var username = document.getElementById("un").value;
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var chars_length = chars.length;
+            var id = "";
+            for (var i = 0; i < 8; i++){
+                var rand = Math.floor(Math.random() * chars_length);
+                id += chars[rand];
+            };
+            document.getElementById("display_results").innerHTML = "Username: " + username + "<br>" + "ID: " + id;
+            
+        };
+        
+    </script>
+    
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Remove Specific Characters</title>
+    </head>
+    <body>
+        <form>
+            Create Number array: <input id="inp" /> 
+            Get Numbers Larger than: <input id="base" /> 
+            <br>
+            <input type="button" onClick="get_larger_nums()" Value="Remove" />
+            <br>
+            Numbers that be larger:  <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function compare(a, b){
+            return a - b;
+        };
+        function get_larger_nums(){
+            var inp = document.getElementById("inp").value;
+            var arr = inp.split(" ");
+            var base_num = document.getElementById("base").value;
+            var results = [];
+            for (var i = 0; i < arr.length; i++){
+                current_num = arr[i];
+                if(current_num > base_num){
+                    results.push(current_num);
+                }
+                else continue;
+            };
+            document.getElementById("display_results").innerHTML = results.sort(compare).join(", ");
+        };
+        
+    </script>
+    
+</html>

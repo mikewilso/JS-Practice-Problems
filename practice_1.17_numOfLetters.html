@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Remove Specific Characters</title>
+    </head>
+    <body>
+        <form>
+            Input String: <input id="inp" /> 
+            <br>
+            <input type="button" onClick="count_chars()" Value="Count" />
+            <br>
+            Letters: <br>
+            <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function count_chars(){
+            var input_str = document.getElementById("inp").value;
+            var letter_object = {};
+            var final_result = "";
+            for (var i = 0; i < input_str.length; i++){
+                var current_letter = input_str[i];
+                if (current_letter in letter_object){
+                    letter_object[current_letter] += 1;
+                }
+                else letter_object[current_letter] = 1;
+            };
+            console.log(letter_object);
+            for (var k in letter_object){
+                final_result += "Char -- " + k + ": " + letter_object[k] + "<br>";
+            };
+            
+            document.getElementById("display_results").innerHTML = final_result;
+        };
+    </script>
+    
+</html>

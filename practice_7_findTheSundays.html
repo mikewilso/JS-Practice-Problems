@@ -1,0 +1,22 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+		<meta charset=utf-8 />  
+		<title>Is the first day of the year Sunday?</title>  
+	</head>
+	<body>
+
+		<script type="text/javascript">
+            console.log("--------------------");
+            for(var year = 2014; year <= 2050; year++) {
+                var currentYear = new Date(year, 0, 1);
+                if (currentYear.getDay() === 0){
+                    console.log(currentYear.getFullYear() + "\'s first day is a Sunday");
+                }
+                else continue;
+            };
+            console.log("--------------------");
+		</script>
+        
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Search Using Binary Search</title>
+    </head>
+    <body>
+        <form>
+            Input String: <input id="inp_to_array" /> 
+            <br>
+            Input String: <input id="value" /> 
+            <br>
+            <input type="button" onClick="find_value()" Value="Count" />
+            <br>
+            Index of search value: <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        //THE EXAMPLE SOLUTION TO THIS PROBLEM ASSUMES AN ARRAY OF NUMBERS ALREADY IN NUMERICAL ORDER, SKIPPING THIS UNTIL I CAN MAKE IT BETTER.
+        function find_value(){
+            var inp = document.getElementById("inp_to_array").value;
+            var search_val = document.getElementById("value").value;
+            var arr = inp.split(" ");
+            var pos = (arr.length) / 2;
+            if (arr[pos] === search_val){
+                return pos;
+            }
+            else if(arr.length === 1){
+                return "Value not found.";
+            }
+            else if(){
+                
+            }
+        };
+    </script>
+    
+</html>

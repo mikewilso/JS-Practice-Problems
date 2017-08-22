@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Get Subsets of a certain length</title>
+    </head>
+    <body>
+        <form>
+            Nums for Array: <input id="nums" />  
+            <br>
+            Subsets of: <input type="number" id="subset" />  
+            <br>
+            <input type="button" onClick="find_subsets()" Value="Generate" />
+            <br>
+            Subsets of array: <br>
+            <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function find_subsets(){
+            var nums = document.getElementById("nums").value;
+            var nums_array = nums.split(" ");
+            var arr_length = nums_array.length;
+            var subset_num = document.getElementById("subset").value;
+            var result = [];
+            for (var i = 0; i < (arr_length - subset_num + 1); i++){
+                var end = i + Number(subset_num);
+                console.log(end);
+                var sliced = nums_array.slice(i, end); 
+                result.push(sliced);
+            };
+            document.getElementById("display_results").innerHTML = result;
+            console.log(result);
+        };
+        
+    </script>
+    
+</html>

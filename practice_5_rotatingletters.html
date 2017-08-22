@@ -1,0 +1,22 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+		<meta charset=utf-8 />  
+		<title>Javascript basic animation</title>  
+	</head>  
+	<body onload="animate_string('text_to_rotate')">
+        <pre id="text_to_rotate">Rotating Text Yo!</pre>
+		<script type="text/javascript">
+            function animate_string(id){
+                var element = document.getElementById(id);
+                var textNode = element.childNodes[0];
+                var text = textNode.data;
+                var rotate_the_text =  function(){
+                    text = text[text.length - 1] + text.substring(0, text.length - 1);
+                    textNode.data = text;
+                };
+                setInterval(rotate_the_text, 100);
+            };
+		</script>
+	</body>
+</html>

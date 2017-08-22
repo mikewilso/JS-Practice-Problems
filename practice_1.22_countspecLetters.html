@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Get Subsets of a certain length</title>
+    </head>
+    <body>
+        <form>
+            Input String: <input type="text" id="inp" />  
+            <br>
+            Subsets of: <input type="text" id="search_letter" />  
+            <br>
+            <input type="button" onClick="count_letter()" Value="Generate" />
+            <br>
+            Results: <br>
+            <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function count_letter(){
+            var str = document.getElementById("inp").value;
+            var letter = document.getElementById("search_letter").value;
+            var result_arr = [];
+            var count = 0;
+            for(var i = 0; i < str.length; i++){
+                if(str[i] == letter){
+                    count += 1;
+                }
+                else continue;
+            };
+            document.getElementById("display_results").innerHTML = "The letter " + letter + " occurs " + count + " times.";
+        };
+    </script>
+    
+</html>

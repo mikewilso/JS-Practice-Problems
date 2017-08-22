@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Create Identity Matrix</title>
+    </head>
+    <body>
+        <form>
+            Width: <input id="inp1" /> <br>
+            Height: <input id="inp2" /> <br>
+            <input type="button" onClick="build_matrix()" Value="Create Matrix" />
+            <br>
+            Results: <br> 
+            <span id="display_results"></span>
+        </form>
+    </body>
+    
+    <script>
+        function replaceAt(index, character) {
+            return this.substr(0, index) + character + this.substr(index, character.length);
+        };
+        function build_matrix(){
+            var width = document.getElementById("inp1").value;
+            var height = document.getElementById("inp2").value;
+            var matrix_array = [];
+            var final_string = "";
+            for (var i = 0; i < height; i++){
+                var m_array = [];
+                for(var j = 0; j < width; j++){
+                    if(i === j){
+                        m_array.push(1)
+                    }
+                    else m_array.push(0)
+                };
+                m_array.push("<br>");
+                matrix_array.push(m_array);
+                
+            };
+            for (var k = 0; k < matrix_array.length; k++){
+                final_string += matrix_array[k].join("");
+                
+            }
+            document.getElementById("display_results").innerHTML = final_string;
+        };
+    </script>
+    
+</html>

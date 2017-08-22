@@ -1,0 +1,28 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+		<meta charset=utf-8 />  
+		<title>Return word with letters alphabetized</title>  
+	</head> 
+	<body>
+        <form>
+            Word to alphabetize: <input type="text" id="inp" /> <br>
+            <input type="button" onClick="alphabetize_letters()" Value="ALPHABETIZE"/>
+            <br>
+            <p>Result: <span id="display_result"></span></p>
+        </form>
+        
+		<script type="text/javascript">
+            function alphabetize_letters() {
+                var input = document.getElementById("inp").value;
+                var temp = [];
+                for(var i = 0; i < input.length; i++){
+                    temp[i] = input.charAt(i);
+                }
+                var result = temp.sort().join("");
+                document.getElementById("display_result").innerHTML = result;
+            };
+        </script>
+        
+	</body>
+</html>

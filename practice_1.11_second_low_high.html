@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Find 2nd Lowest + Highest Numbers</title>
+    </head>
+    <body>
+        <form>
+
+            Input random numbers: <input id="inp" /> <br>
+            <input type="button" onClick="find_2_low_high()" Value="Find" />
+            <br>
+            2nd highest number: <span id="display_results1"></span>
+            <br>
+            2nd lowest number: <span id="display_results2"></span>
+        </form>
+    </body>
+    
+    <script>
+        var count = 0;
+        function sortNumber(a,b) {
+            count++;
+            console.log(count);
+            console.log(arguments);
+            return a - b;
+        };
+        function find_2_low_high(){
+            var input_nums = document.getElementById("inp").value;
+            var input_nums_array = input_nums.split(" ");
+            input_nums_array.sort(sortNumber);
+            console.log(input_nums_array);
+            document.getElementById("display_results1").innerHTML = input_nums_array[input_nums_array.length - 2];
+            document.getElementById("display_results2").innerHTML = input_nums_array[1];
+        };
+    </script>
+    
+</html>

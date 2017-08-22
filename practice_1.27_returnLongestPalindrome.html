@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Get Subsets of a certain length</title>
+    </head>
+    <body>
+        <form>
+            Input String: <input type="text" id="inp" />  
+            <br>
+            <input type="button" onClick="find_palindromes()" Value="Find" />
+            <br>
+            Results: <br>
+            <strong>All Palindromes: </strong><span7 id="display_results"></span> <br>
+            <strong>Longest Palindrome: </strong><span id="final_result"></span>
+        </form>
+    </body>
+    
+    <script>
+        function is_palindrome(str){
+            var rev_str = str.split("").reverse().join("");
+            return (str === rev_str);
+        };
+        
+        function find_palindromes(){
+            
+            var text = document.getElementById("inp").value;
+            var text_array = text.split("");
+            var char_array = [];
+            var palindrome_array = [];
+            var longest = "";
+            
+            
+            for(var i = 0; i < text_array.length; i++){
+                var current_letter = text_array[i];
+                if(current_letter === " "){
+                    continue;
+                }
+                else char_array.push(current_letter);
+            };
+            
+            var max_length = char_array.length;
+            var subset_num = max_length;
+            
+            if(is_palindrome(text)){
+                document.getElementById("display_results").innerHTML = text;
+            };
+            while (subset_num >= 3){
+                for (var i = 0; i < (char_array.length - (subset_num - 1)); i++){
+                    var end = i + subset_num;
+                    var sliced = text.slice(i, end); 
+                    if(is_palindrome(sliced)){
+                        palindrome_array.push(sliced);
+                    }
+                    else continue;
+                };
+                
+                subset_num--;
+            };
+            document.getElementById("display_results").innerHTML = palindrome_array;
+            for(var j = 0; j < palindrome_array.length; j++){
+                var current_p = palindrome_array[j];
+                if(current_p.length > longest.length){
+                    longest = current_p;
+                }
+                else continue;
+            };
+            document.getElementById("final_result").innerHTML = longest;
+        };
+    </script>
+    
+</html>

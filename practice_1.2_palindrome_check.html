@@ -1,0 +1,27 @@
+<!DOCTYPE html>  
+<html>  
+	<head>  
+		<meta charset=utf-8 />  
+		<title>Check for palindrome status</title>  
+	</head>  
+	<body>
+        <form>
+            Check for Palindrome Status: <input type="text" id="inp" /> <br>
+            <input type="button" onClick="check_for_palindrome()" Value="Check"/>
+            <br>
+            <p>Result: <span id="display_result"></span></p>
+        </form>
+        
+		<script type="text/javascript">
+            function check_for_palindrome(){
+                var input_string = document.getElementById("inp").value;
+                var rev_input_string = input_string.split("").reverse().join("");
+                if (input_string === rev_input_string){
+                    document.getElementById("display_result").innerHTML = "ITS A PALINDROME";
+                }
+                else {document.getElementById("display_result").innerHTML = "NOPE, NOT PALINDROME"}
+            };
+		</script>
+        
+	</body>
+</html>
